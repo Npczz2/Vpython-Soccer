@@ -1,0 +1,36 @@
+Web VPython 3.2
+
+chao = box(pos=vector(0,-2,0), length = 4, width = 5, height = 0.5, color = color.green)
+trave1 = box(pos=vector(1,-1, 2), length = 0.25, width = 0.25, height = 1.5, color = color.white)
+trave2 = box(pos=vector(-1,-1, 2), length = 0.25, width = 0.25, height = 1.5, color = color.white)
+travessao = box(pos=vector(0, -0.375, 2), length = 2, width = 0.25, height = 0.25, color = color.white)
+
+ball = sphere(pos=vector(0, -1.5, 0), radius = 0.25, color = color.red)
+ball.velocity = vector(0, 3, 2)
+
+
+dt = 0.01
+
+while 1:
+    
+    rate(100)
+    ball.pos = ball.pos + ball.velocity * dt
+    
+    #Gravity
+    ballFloorDist = abs(ball.pos.y - chao.pos.y)
+    
+    if(ballFloorDist < 0.5):
+        ball.velocity.y = abs(ball.velocity.y) * 0.95
+    else:
+        ball.velocity.y = ball.velocity.y - 9.8 * dt
+    #
+    
+    refTrave = travessao #Define qual trave vai tomar como referência
+    
+    ballTraveDistY = abs(ball.pos.y - refTrave.pos.y)
+    ballTraveDistZ = abs(ball.pos.z - refTrave.pos.z)
+    
+    if(ballTraveDistZ < 0.5 and ballTraveDistY < 0.5):
+        ball.velocity.z = -ball.velocity.z
+    else:
+        ball.velocity.z = ball.velocity.z * 0.995
