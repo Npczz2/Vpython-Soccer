@@ -25,7 +25,7 @@ while 1:
         ball.velocity.y = ball.velocity.y - 9.8 * dt
     #
     
-    refTrave = trave1 #Define qual trave vai tomar como referência
+    refTrave = trave1 #Defines the reference bar
     
     ballTraveDistX = abs(ball.pos.x - refTrave.pos.x)
     ballTraveDistY = abs(ball.pos.y - refTrave.pos.y)
