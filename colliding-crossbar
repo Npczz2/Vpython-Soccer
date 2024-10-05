@@ -25,7 +25,7 @@ while 1:
         ball.velocity.y = ball.velocity.y - 9.8 * dt
     #
     
-    refTrave = travessao #Define qual trave vai tomar como referência
+    refTrave = travessao #Defines the crossbar as reference
     
     ballTraveDistY = abs(ball.pos.y - refTrave.pos.y)
     ballTraveDistZ = abs(ball.pos.z - refTrave.pos.z)
