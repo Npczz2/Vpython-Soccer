@@ -25,12 +25,12 @@ while 1:
         ball.velocity.y = ball.velocity.y - 9.8 * dt
     #
     
-    #Define a curva da bola no eixo Z
+    #Defines the ball curve on the Z axis
     if(ball.velocity.z > -3):
         ball.velocity.z -= 0.08
     #
     
-    refTrave = trave1 #Define qual trave vai tomar como referência
+    refTrave = trave1 #Defines the reference bar
     
     ballTraveDistX = abs(ball.pos.x - refTrave.pos.x)
     ballTraveDistY = abs(ball.pos.y - refTrave.pos.y)
